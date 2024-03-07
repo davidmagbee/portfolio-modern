@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import React from "react";
@@ -14,7 +15,7 @@ function ExperienceCard({}: Props) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         className="w-32 h-32 rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center"
-        src="../public/logos/freelance-dev.png"
+        src="/logos/freelance-dev.png"
         alt="freelance dev david bitmoji"
       />
 
@@ -22,26 +23,26 @@ function ExperienceCard({}: Props) {
         <h4 className="text-4xl font-light">Software Developer</h4>
         <p className="font-bold text-2xl mt-1">Freelance</p>
         <div className="flex space-x-2 my-2">
-          {/* <img
+          <img
             className="h-10 w-10 rounded-full"
-            src="/logos/react-original.svg"
+            src="/icons/react-original.svg"
             alt="react"
           />
           <img
             className="h-10 w-10 rounded-full"
-            src="/logos/next.png"
+            src="/icons/nextjs-line.svg"
             alt="next"
           />
           <img
             className="h-10 w-10 rounded-full"
-            src="/logos/tailwind.png"
+            src="/icons/tailwind.png"
             alt="tailwind"
           />
           <img
             className="h-10 w-10 rounded-full"
-            src="/logos/typescript.png"
+            src="/icons/typescript-original.svg"
             alt="typescript"
-          /> */}
+          />
         </div>
         <p>Started... Ended...</p>
         <ul className="list-disc space-y-4 ml-5 text-lg">
