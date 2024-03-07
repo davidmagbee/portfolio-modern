@@ -34,7 +34,6 @@ function Skills({}: Props) {
             <Skill />
             <Skill />
             <Skill />
-            <Skill />
         </div>
     </div>
   )
