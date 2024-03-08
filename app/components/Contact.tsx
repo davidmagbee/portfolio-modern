@@ -1,3 +1,5 @@
+'use client';
+
 import { EnvelopeIcon, MapPinIcon, PhoneIcon } from "@heroicons/react/16/solid";
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -18,7 +20,7 @@ function Contact({}: Props) {
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = (formData) => {
-    window.location.href = `mailto:5I8oA@example.com?subject=${formData.subject}&body=Hi, my name is ${formData.name}. ${formData.message} (${formData.email})`;
+    window.location.href = `mailto:david.magbee@me.com?subject=${formData.subject}&body=Hi, my name is ${formData.name}. %0D%0A %0D%0A ${formData.message} %0D%0A %0D%0A (${formData.email})`;
   }
   
   return (
@@ -61,12 +63,9 @@ function Contact({}: Props) {
             {...register('message')}
             placeholder="Message"
             className="contactInput"
-            name=""
-            id=""
             cols={30}
             rows={10}
-          ></textarea>
-
+          />
           <button
             type="submit"
             className="bg-[#468621] py-5 px-10 rounded-md text-black font-bold text-lg"
