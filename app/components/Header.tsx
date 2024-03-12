@@ -34,7 +34,8 @@ const Header = (props: Props) => {
           bgColor="transparent"
         />
       </motion.div>
-      <Link href="#contact">
+      {/* TODO: Fix hydration issue with next/link */}
+      {/* <Link href="#contact"> */}
         <motion.div
           className="flex flex-row items-center text-gray-300 cursor-pointer"
           initial={{
@@ -54,7 +55,7 @@ const Header = (props: Props) => {
             Let&apos;s Connect
           </p>
         </motion.div>
-      </Link>
+      {/* </Link> */}
     </header>
   );
 };

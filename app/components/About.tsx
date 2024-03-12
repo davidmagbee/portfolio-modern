@@ -34,12 +34,12 @@ export default function About({}: Props) {
           background about me...{" "}
         </h4>
         <p className="text-base">
-          I am a full-stack developer who approaches projects with humans and
-          purpose in mind. I am passionate about developing efficiencies that
-          improve workflow and create space for creative collaboration and
-          innovation. I am a firm believer in empowering individuals and teams
-          through structured educational guidance so that they may reach
-          personal and professional goals.
+          I am a full-stack developer who creates purposeful projects that
+          prioritize humans. I am passionate about developing innovative
+          solutions to meet user needs. Let&apos;s work together on exciting
+          projects! I believe in empowering individuals and teams through
+          structured educational guidance to achieve personal and professional
+          goals.
         </p>
       </div>
     </motion.div>
