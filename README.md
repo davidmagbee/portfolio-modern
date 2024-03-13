@@ -1,36 +1,20 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Portfolio-Modern
 
-## Getting Started
+> Version: 0.1.0
 
-First, run the development server:
+This is a modernized version of my portfolio site, leveraging cutting-edge technologies to showcase my work and skills effectively. Built with Next.js for server-side rendering and React for dynamic user interfaces, this portfolio incorporates smooth animations and transitions powered by Framer Motion.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Data management is handled efficiently using Sanity CMS, allowing for easy content updates and image handling with Sanity's powerful features like image URL generation and vision. React Hook Form ensures robust and user-friendly form functionality for seamless interactions.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Styled with Styled Components, the design of this portfolio site is sleek and responsive, offering a seamless experience across various devices. Tailwind CSS provides utility-first styling for quick and consistent layout and design adjustments.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Key Features:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Next.js for server-side rendering and routing
+React for dynamic UI components
+Framer Motion for smooth animations and transitions
+Sanity CMS for efficient data management and content updates
+React Hook Form for robust form functionality
+Styled Components for modular and styled UI components
+Tailwind CSS for utility-first styling and responsive design
+This portfolio showcases my projects, skills, and experiences in an engaging and interactive manner, reflecting my dedication to crafting exceptional digital experiences.
