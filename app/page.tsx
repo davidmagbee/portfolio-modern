@@ -1,36 +1,76 @@
+'use client';
+
 import Image from "next/image";
 import Link from "next/link";
 import About from "./components/About";
 import Contact from "./components/Contact";
-import Experience from "./components/Experience";
+import WorkExperience from "./components/WorkExperience";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
+import { Experience, PageInfo, Project, Skill, Social } from "@/typings";
+import { fetchPageInfo } from "@/utils/fetchPageInfo";
+import { fetchExperience } from "@/utils/fetchExperience";
+import { fetchSkills } from "@/utils/fetchSkills";
+import { fetchProjects } from "@/utils/fetchProjects";
+import { fetchSocials } from "@/utils/fetchSocials";
+import { useEffect, useState } from "react";
+
+// TODO: Add revalidation && getStaticProps when possible
+// type Props = {
+//   pageInfo: PageInfo;
+//   experiences: Experience[];
+//   skills: Skill[];
+//   projects: Project[];
+//   socials: Social[];
+// };
 
 export default function Home() {
+  const [socials, setSocials] = useState<Social[]>([]);
+  const [experiences, setExperiences] = useState<Experience[]>([]);
+  const [skills, setSkills] = useState<Skill[]>([]);
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [pageInfo, setPageInfo] = useState<PageInfo>({} as PageInfo);
+
+  useEffect(() => {
+    Promise.all([
+      fetchSocials(),
+      fetchExperience(),
+      fetchSkills(),
+      fetchProjects(),
+      fetchPageInfo(),
+    ]).then(([socialData, experienceData, skillData, projectData, pageInfoData]) => {
+      setSocials(socialData);
+      setExperiences(experienceData);
+      setSkills(skillData);
+      setProjects(projectData);
+      setPageInfo(pageInfoData);
+    });
+  }, []);
+  
   return (
     <main className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#468621]/80">
-      <Header />
+      <Header socials={socials}/>
 
       <section id="hero" className="snap-center">
-        <Hero />
+        <Hero pageInfo={pageInfo}/>
       </section>
 
       <section id="about" className="snap-start">
-        <About />
+        <About pageInfo={pageInfo}/>
       </section>
 
       <section id="experience" className="snap-center">
-        <Experience />
+        <WorkExperience experiences={experiences} />
       </section>
 
       <section id="skills" className="snap-start">
-        <Skills />
+        <Skills skills={skills}/>
       </section>
       
       <section id="projects" className="snap-start">
-        <Projects />
+        <Projects projects={projects}/>
       </section>
       
       <section id="contact" className="snap-start">
