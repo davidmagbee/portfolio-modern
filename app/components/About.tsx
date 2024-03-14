@@ -10,6 +10,7 @@ type Props = {
 };
 
 export default function About({pageInfo}: Props) {
+  if (!pageInfo) return <div>Let me get that for you...</div>;
   return (
     <motion.div
       initial={{ opacity: 0 }}

@@ -11,6 +11,7 @@ type Props = {
 };
 
 function Skill({ skill, directionLeft}: Props) {
+  if (!skill) return <div>Let me get that for you...</div>;
   return (
     <div className="group relative flex cursor-pointer">
       {skill?.image && (

@@ -29,12 +29,12 @@ function Contact({}: Props) {
       <div className="flex flex-col space-y-10">
         <div>
           {/* hotfix in place | TODO: address contact section layout odd behavior */}
-          <h4 className="text-2xl font-semibold text-center">
+          {/* <h4 className="text-2xl font-semibold text-center">
             I&apos;m open to new opportunities!{" "}
             <span className="decoration-[#468621]/50 underline">
               Let&apos;s talk.
             </span>
-          </h4>
+          </h4> */}
         </div>
 
         <div className="space-y-10">

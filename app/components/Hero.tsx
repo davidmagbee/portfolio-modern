@@ -25,6 +25,7 @@ const Hero = ({ pageInfo }: Props) => {
     loop: true,
     delaySpeed: 2000,
   });
+  if (!pageInfo) return <div>Let me get that for you...</div>;
   
   return (
     <div className="h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden">
