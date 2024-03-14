@@ -36,7 +36,7 @@ const Header = ({socials}: Props) => {
         {/* farm/radio icons */}
       </motion.div>
       {/* TODO: Fix hydration issue with next/link */}
-      {/* <Link href="#contact"> */}
+      <Link href="#contact">
         <motion.div
           className="flex flex-row items-center text-gray-300 cursor-pointer"
           initial={{
@@ -57,7 +57,7 @@ const Header = ({socials}: Props) => {
             Let&apos;s Connect
           </p>
         </motion.div>
-      {/* </Link> */}
+      </Link>
     </header>
   );
 };
