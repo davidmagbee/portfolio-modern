@@ -1,99 +1,77 @@
-"use client";
+import { useForm, SubmitHandler } from "react-hook-form";
 
-import { EnvelopeIcon, MapPinIcon, PhoneIcon } from "@heroicons/react/16/solid";
-import React from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
-
-type Inputs = {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-};
-
-type Props = {};
-
-function Contact({}: Props) {
+type Inputs = { name: string; email: string; subject: string; message: string };
+export default function Contact() {
   const { register, handleSubmit } = useForm<Inputs>();
-
-  const onSubmit: SubmitHandler<Inputs> = (formData) => {
-    window.location.href = `mailto:david.magbee@me.com?subject=${formData.subject}&body=Hi, my name is ${formData.name}. %0D%0A %0D%0A ${formData.message} %0D%0A %0D%0A (${formData.email})`;
+  const onSubmit: SubmitHandler<Inputs> = (values) => {
+    // Encode complete fields so ampersands, Unicode, and line breaks survive mailto.
+    const body = `Hi, my name is ${values.name}.\n\n${values.message}\n\n${values.email}`;
+    window.location.href = `mailto:david.magbee@me.com?subject=${encodeURIComponent(values.subject)}&body=${encodeURIComponent(body)}`;
   };
-
   return (
-    <div className="h-screen flex relative flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center">
-      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl mx-auto">
+    <div className="section-shell contact-section">
+      <h2 id="contact-title" className="section-title">
         Contact
-      </h3>
-
-      <div className="flex flex-col space-y-10">
+      </h2>
+      <div className="contact-layout">
         <div>
-          {/* hotfix in place | TODO: address contact section layout odd behavior */}
-          {/* <h4 className="text-2xl font-semibold text-center">
-            I&apos;m open to new opportunities!{" "}
-            <span className="decoration-[#468621]/50 underline">
-              Let&apos;s talk.
-            </span>
-          </h4> */}
+          <h3>Let’s talk.</h3>
+          <p>
+            <a href="mailto:david.magbee@me.com">david.magbee@me.com</a>
+          </p>
+          <p>
+            <a href="tel:+15743292425">+1 (574) 329-2425</a>
+          </p>
+          {/* Keep the supplied scheduling URL intact; its redirect was verified. */}
+          <p>
+            <a className="project-link" href="https://bit.ly/davidmagbee">
+              Schedule a meeting ↗
+            </a>
+          </p>
         </div>
-
-        <div className="space-y-10">
-          <div className="flex items-center space-x-5 justify-center">
-            <PhoneIcon className="text-[#468621] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">+1 (574) 329-2425</p>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="form-row">
+            <label>
+              Name
+              <input
+                {...register("name")}
+                autoComplete="name"
+                required
+                className="contactInput"
+              />
+            </label>
+            <label>
+              Email
+              <input
+                {...register("email")}
+                autoComplete="email"
+                type="email"
+                required
+                className="contactInput"
+              />
+            </label>
           </div>
-          <div className="flex items-center space-x-5 justify-center">
-            <EnvelopeIcon className="text-[#468621] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">david.magbee@me.com</p>
-          </div>
-          <div className="flex items-center space-x-5 justify-center">
-            <MapPinIcon className="text-[#468621] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">Better Farm</p>
-          </div>
-        </div>
-        {/* TODO: Update contact form to incorporate formspree from portfolio v2 */}
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col space-y-2 w-fit mx-auto"
-        >
-          <div className="flex space-x-2">
-            <input
-              {...register("name")}
-              placeholder="Name"
+          <label>
+            Subject
+            <input {...register("subject")} required className="contactInput" />
+          </label>
+          <label>
+            Message
+            <textarea
+              {...register("message")}
+              required
+              rows={6}
               className="contactInput"
-              type="text"
             />
-            <input
-              {...register("email")}
-              placeholder="Email"
-              className="contactInput"
-              type="email"
-            />
-          </div>
-
-          <input
-            {...register("subject")}
-            placeholder="Subject"
-            className="contactInput"
-            type="text"
-          />
-          <textarea
-            {...register("message")}
-            placeholder="Message"
-            className="contactInput"
-            cols={30}
-            rows={10}
-          />
-          <button
-            type="submit"
-            className="bg-[#468621] py-5 px-10 rounded-md text-black font-bold text-lg"
-          >
-            Submit
+          </label>
+          <p className="muted form-note">
+            Opens your email app with a draft. You send it from there.
+          </p>
+          <button className="send-button" type="submit">
+            Open email draft ↗
           </button>
         </form>
       </div>
     </div>
   );
 }
-
-export default Contact;

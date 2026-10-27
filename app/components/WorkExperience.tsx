@@ -1,33 +1,46 @@
-"use client";
-
-import React from "react";
-import { motion } from "framer-motion";
 import ExperienceCard from "./ExperienceCard";
+import WorkScreenshots from "./WorkScreenshots";
 import { Experience } from "@/typings";
+import { careerHistory } from "@/data/careerHistory";
+import { cookieFinance } from "@/data/cookieFinance";
 
-type Props = {
+// Résumé is authoritative for career copy; CMS supplies optional Cookie Finance evidence.
+export default function WorkExperience({
+  experiences,
+}: {
   experiences: Experience[];
-};
+}) {
+  const cookieJobs = experiences.filter((job) =>
+    /cookie\s*finance/i.test(job.company),
+  );
 
-function WorkExperience({ experiences }: Props) {
+  const screenshots = cookieJobs.flatMap((job) => job.screenshots || []);
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 1.5 }}
-      className="h-screen flex relative overflow-hidden flex-col text-left md:flex-row max-w-full px-10 justify-evenly mx-auto items-center"
-    >
-      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl scroll-smooth">
+    <div className="section-shell">
+      <h2 id="experience-title" className="section-title">
         Experience
-      </h3>
-
-      <div className="w-full flex space-x-5 overflow-x-scroll p-10 snap-x snap-mandatory">
-        {experiences?.map((experience) => (
-          <ExperienceCard key={experience._id} experiences={experience} />
+      </h2>
+      <article className="experience-card cookie-highlight">
+        <p className="eyebrow">Selected work</p>
+        <h3>Cookie Finance</h3>
+        <p className="job-title">{cookieFinance.role}</p>
+        <p className="muted">{cookieFinance.dates}</p>
+        <p>{cookieFinance.summary}</p>
+        <div className="highlights-grid">
+          {cookieFinance.highlights.map((highlight) => (
+            <div key={highlight.title}>
+              <h4>{highlight.title}</h4>
+              <p>{highlight.description}</p>
+            </div>
+          ))}
+        </div>
+        <WorkScreenshots screenshots={screenshots} company="Cookie Finance" />
+      </article>
+      <div className="experience-grid">
+        {careerHistory.map((job) => (
+          <ExperienceCard key={job.id} experience={job} />
         ))}
       </div>
-    </motion.div>
+    </div>
   );
 }
-
-export default WorkExperience;

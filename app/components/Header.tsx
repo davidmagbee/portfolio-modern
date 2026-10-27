@@ -1,65 +1,33 @@
-"use client";
-
-import React from "react";
 import { SocialIcon } from "react-social-icons";
-import { motion } from "framer-motion";
-import Link from "next/link";
 import { Social } from "@/typings";
 
-type Props = {
-  socials: Social[];
-};
-
-const Header = ({socials}: Props) => {
+// Keep CMS social destinations, excluding Better Farm, with accessible icon labels.
+export default function Header({ socials }: { socials: Social[] }) {
+  const visibleSocials = socials.filter(
+    (social) =>
+      !/better\s*farm/i.test(social.title) &&
+      !/betterfarm\.org/i.test(social.url),
+  );
   return (
-    <header className="sticky top-0 p-5 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center">
-      {/* Social Icons | TODO: update social links && + farm/radio icons   */}
-      <motion.div
-        className="flex flex-row items-center"
-        initial={{
-          x: -500,
-          opacity: 0,
-          scale: 0.5,
-        }}
-        animate={{ x: 0, opacity: 1, scale: 1 }}
-        transition={{ duration: 1.5 }}
-      >
-        {/* social icons */}
-        {socials.map((social) => (
+    <header className="site-header">
+      <a className="brand" href="#hero">
+        David Magbee
+      </a>
+      <nav aria-label="Social and contact links">
+        {visibleSocials.map((social) => (
           <SocialIcon
             key={social._id}
             url={social.url}
-            fgColor="gray"
+            label={social.title}
+            fgColor="#b6b9b2"
             bgColor="transparent"
+            style={{ width: 48, height: 48 }}
           />
         ))}
-        {/* farm/radio icons */}
-      </motion.div>
-      {/* TODO: Fix hydration issue with next/link */}
-      <Link href="#contact">
-        <motion.div
-          className="flex flex-row items-center text-gray-300 cursor-pointer"
-          initial={{
-            x: -500,
-            opacity: 0,
-            scale: 0.5,
-          }}
-          animate={{ x: 0, opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
-        >
-          <SocialIcon
-            className="cursor-pointer"
-            network="email"
-            fgColor="gray"
-            bgColor="transparent"
-          />
-          <p className="uppercase hidden md:inline-flex text-sm text-gray-400">
-            Let&apos;s Connect
-          </p>
-        </motion.div>
-      </Link>
+        <a className="contact-link" href="#contact">
+          Let’s connect ↗
+        </a>
+      </nav>
     </header>
   );
-};
-
-export default Header;
+}
