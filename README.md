@@ -18,3 +18,10 @@ React Hook Form for robust form functionality
 Styled Components for modular and styled UI components
 Tailwind CSS for utility-first styling and responsive design
 This portfolio showcases my projects, skills, and experiences in an engaging and interactive manner, reflecting my dedication to crafting exceptional digital experiences.
+## Local preview and portfolio content
+
+Copy `.env.example` to `.env.local` and configure the existing Sanity project ID/dataset, then run `npm ci`, `npm run build`, and `npm run start`. Legacy `NEXT_PUBLIC_SANITY_STUDIO_PROJECT_ID` and `NEXT_PUBLIC_SANITY_STUDIO_DATASET` remain supported. Static generation now queries Sanity directly; a running copy of the site's API is not required to build.
+
+Without CMS configuration, local preview shows only the authored highlights and known identity/contact details, with a build warning. **Configure and verify the existing CMS before deploying** so prior portfolio content is included.
+
+New project descriptions live in `data/featuredWork.ts`; authentic screenshots are in `public/projects/`. Employment history in `data/careerHistory.ts` follows the supplied résumé. Cookie Finance highlights in `data/cookieFinance.ts` are grounded in the supplied résumé, tenure narrative, and Jira export; screenshots remain pending. See [verification and manual QA](docs/PORTFOLIO-QA.md) and the [prepared PR body](docs/PR_BODY.md).
