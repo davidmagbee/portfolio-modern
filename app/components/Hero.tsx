@@ -27,6 +27,8 @@ export default function Hero({
       <h1>
         Hello, my name is <span>{pageInfo?.name || "David Magbee"}.</span>
       </h1>
+      {/* Keep the recruiter CTA visible and linked directly to the contact section. */}
+      <a className="project-link" href="#contact">Open to opportunities. Let’s talk ↗</a>
       <nav className="hero-nav" aria-label="Portfolio sections">
         {pageInfo && (
           <a className="heroButton" href="#about">

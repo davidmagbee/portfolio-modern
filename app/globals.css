@@ -469,3 +469,10 @@ textarea {
 .skill img[src="/icons/django-plain.svg"] {
   filter: brightness(0) invert(1);
 }
+
+/* Pending/unavailable submission stays distinct within the existing palette. */
+.send-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.form-error { color: #ffc6b8; }

@@ -25,3 +25,7 @@ Copy `.env.example` to `.env.local` and configure the existing Sanity project ID
 Without CMS configuration, local preview shows only the authored highlights and known identity/contact details, with a build warning. **Configure and verify the existing CMS before deploying** so prior portfolio content is included.
 
 New project descriptions live in `data/featuredWork.ts`; authentic screenshots are in `public/projects/`. Employment history in `data/careerHistory.ts` follows the supplied résumé. Cookie Finance highlights in `data/cookieFinance.ts` are grounded in the supplied résumé, tenure narrative, and Jira export; screenshots remain pending. See [verification and manual QA](docs/PORTFOLIO-QA.md) and the [prepared PR body](docs/PR_BODY.md).
+
+## Server-side contact
+
+The contact form uses `/api/contact` with Resend and Cloudflare Turnstile. Configure all six contact variables in `.env.example`; the public Turnstile key must exist at build time. Without it, visitors see email/scheduling alternatives. See [contact deployment, PR body, and manual QA](docs/CONTACT-RELEASE.md). Run `node --test tests/contact.test.cjs` for mocked API regression checks. Real inbox delivery must be verified after configuring the providers.
