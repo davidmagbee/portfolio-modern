@@ -16,7 +16,8 @@ export const featuredWork = [
     image: "/projects/small-wins.png",
     alt: "Small Wins guest workspace showing search, status filters, and the task creation form",
     caption: "Live assessment · guest workspace",
-    href: "https://assessment-todo.vercel.app/",
+    href: "https://small-wins-davidmagbee.vercel.app/",
+    repositoryHref: "https://github.com/davidmagbee/small-wins",
   },
   {
     id: "repairvantage",

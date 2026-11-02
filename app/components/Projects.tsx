@@ -54,6 +54,12 @@ export default function Projects({ projects }: { projects: Project[] }) {
                   Explore the live app ↗
                 </a>
               )}
+              {/* Keep source access explicit alongside the separately hosted live app. */}
+              {work.repositoryHref && (
+                <a className="project-link" href={work.repositoryHref}>
+                  View source on GitHub ↗
+                </a>
+              )}
             </div>
           </article>
         ))}

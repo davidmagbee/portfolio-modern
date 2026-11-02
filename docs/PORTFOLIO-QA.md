@@ -19,7 +19,7 @@
 
 ## Content provenance
 
-- Small Wins: `../assessment-todo/README.md` and https://assessment-todo.vercel.app/. Screenshot captured from the live guest workspace; no task was created and no email was sent.
+- Small Wins: `../assessment-todo/README.md` and https://small-wins-davidmagbee.vercel.app/. Screenshot captured from the live guest workspace; no task was created and no email was sent.
 - RepairVantage: `../RepairVantage/client/src/pages/Dashboard.tsx`, `ProjectList.tsx`, `Inventory.tsx`, `Calendar.tsx`, and `client/package.json`. Local dashboard screenshot shows existing demo data. The dashboard skips its GraphQL query; inventory and calendar are placeholder pages. Copy explicitly describes an in-progress prototype, not completed production functionality.
 - Cookie Finance: see `docs/CONTENT-SOURCES.md` for source reconciliation and exclusions.
 - Existing identity and contact details: original portfolio source and local portrait asset.
