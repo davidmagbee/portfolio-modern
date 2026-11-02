@@ -14,7 +14,7 @@ Moving hostname does not migrate browser guest/account cookies. Email inbox acce
 
 ## PR delta
 
-Initial rename patch; no PR or earlier push for this change.
+After d228dac: group live/source actions with a wrapping gap so adjacent destinations remain visually distinct at narrow widths. No PR was created.
 
 ## Manual QA
 

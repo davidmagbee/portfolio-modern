@@ -318,6 +318,12 @@ figcaption {
   border-radius: 2rem;
   padding: 0.25rem 0.75rem;
 }
+/* Keep live/source destinations distinct and allow wrapping on narrow screens. */
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+}
 .project-link {
   display: inline-flex;
   align-items: center;

@@ -49,17 +49,19 @@ export default function Projects({ projects }: { projects: Project[] }) {
                   <li key={tech}>{tech}</li>
                 ))}
               </ul>
-              {work.href && (
-                <a className="project-link" href={work.href}>
-                  Explore the live app ↗
-                </a>
-              )}
-              {/* Keep source access explicit alongside the separately hosted live app. */}
-              {work.repositoryHref && (
-                <a className="project-link" href={work.repositoryHref}>
-                  View source on GitHub ↗
-                </a>
-              )}
+              <div className="project-actions">
+                {work.href && (
+                  <a className="project-link" href={work.href}>
+                    Explore the live app ↗
+                  </a>
+                )}
+                {/* Keep source access explicit alongside the separately hosted live app. */}
+                {work.repositoryHref && (
+                  <a className="project-link" href={work.repositoryHref}>
+                    View source on GitHub ↗
+                  </a>
+                )}
+              </div>
             </div>
           </article>
         ))}
