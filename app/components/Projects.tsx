@@ -41,27 +41,32 @@ export default function Projects({ projects }: { projects: Project[] }) {
               <p className="eyebrow">{work.category}</p>
               <h3>{work.title}</h3>
               <p>{work.summary}</p>
-              <ul
-                className="technology-list"
-                aria-label={`${work.title} technologies`}
-              >
-                {work.technologies.map((tech) => (
-                  <li key={tech}>{tech}</li>
-                ))}
-              </ul>
-              <div className="project-actions">
-                {work.href && (
-                  <a className="project-link" href={work.href}>
-                    Explore the live app ↗
-                  </a>
-                )}
-                {/* Keep source access explicit alongside the separately hosted live app. */}
-                {work.repositoryHref && (
-                  <a className="project-link" href={work.repositoryHref}>
-                    View source on GitHub ↗
-                  </a>
-                )}
-              </div>
+              {/* Preview-only cards can show just a description and screenshot. */}
+              {work.technologies.length > 0 && (
+                <ul
+                  className="technology-list"
+                  aria-label={`${work.title} technologies`}
+                >
+                  {work.technologies.map((tech) => (
+                    <li key={tech}>{tech}</li>
+                  ))}
+                </ul>
+              )}
+              {(work.href || work.repositoryHref) && (
+                <div className="project-actions">
+                  {work.href && (
+                    <a className="project-link" href={work.href}>
+                      Explore the live app ↗
+                    </a>
+                  )}
+                  {/* Keep source access explicit alongside the separately hosted live app. */}
+                  {work.repositoryHref && (
+                    <a className="project-link" href={work.repositoryHref}>
+                      View source on GitHub ↗
+                    </a>
+                  )}
+                </div>
+              )}
             </div>
           </article>
         ))}

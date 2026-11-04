@@ -30,6 +30,7 @@ Screenshots are unknown/pending and are not synthesized. No claim is made that t
 
 ## Project screenshots
 
+- `public/projects/redwood-development.jpg`: actual full-page capture of the running local Redwood homepage on November 4, 2026. The page labels itself a development preview and marks events as synthetic demos. Description follows `../WITHIRNY/README.md`, `../WITHIRNY/src/app/page.tsx`, and `../WITHIRNY/src/components/site-shell.tsx`: calendar/search are in the preview; history, photos, and notices are planned. This card includes no live-app/source links or technology claims.
 - `public/projects/small-wins.png`: actual viewport capture of the live assessment guest workspace. Project description also references its local README; no coverage statistic is promoted as a portfolio claim.
 - `public/projects/repairvantage.png`: actual viewport capture of the locally launched RepairVantage prototype. Its dashboard skips backend loading and shows demo data; inventory/scheduling remain planned. The portfolio states these limits explicitly.
 

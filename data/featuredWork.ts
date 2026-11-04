@@ -1,6 +1,19 @@
 /** Repository-backed descriptions; screenshots depict the actual UI, not mockups. */
 export const featuredWork = [
   {
+    // Keep this development showcase limited to a short summary and real screenshot.
+    id: "redwood",
+    title: "Where in the Hell Is Redwood, NY?",
+    category: "Community website · In development",
+    summary:
+      "A community website for Redwood, NY, currently in development. The preview includes a searchable events calendar, with local history, photos, and community notices planned.",
+    technologies: [],
+    image: "/projects/redwood-development.jpg",
+    alt: "Redwood, NY development homepage with a preview notice, community introduction, and event search",
+    caption: "Local development preview · demo events",
+    href: null,
+  },
+  {
     id: "small-wins",
     title: "Small Wins",
     category: "Full-stack assessment",
